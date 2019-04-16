@@ -205,9 +205,7 @@ def set_zero(matrix):
     print('')
     # print(rectangle[1,0])
     print(rectangle2)
-    print('rows')
-    print(rows)
-    print('columns')
-    print(columns)
+    print('rows', rows)
+    print('columns', columns)
     return rectangle
 print(set_zero(rectangle))
