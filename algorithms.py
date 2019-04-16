@@ -148,21 +148,66 @@
 # [1,2,3,       [7,4,1,
 #  4,5,6,   ->   8,5,2,
 #  7,8,9]        9,6,3]
-import math
+
+# import math
+# import numpy
+
+# a = [1,2,3,
+#      4,5,6,
+#      7,8,9]
+
+# def rotate(square):
+#     reversed_list = []
+#     if len(square) % math.sqrt(len(square)) != 0:
+#         return 'not a square'
+#     split = list(reversed(square))
+#     split = numpy.array_split(split,math.sqrt(len(split)))
+
+#     zipped = list(zip(*split))
+#     zipped = list(reversed(zipped))
+#     return zipped
+# print(rotate(a))
+
+
+
+
+# Chapter 01 - Problem 08 - Set Zero - CTCI 6th Edition page 91
+
+# Problem Statement:
+# Write an algorithm such that if an element in an MxN matrix is 0, its entire
+# row and column are set to 0.
+
+# Example:
+# [1, 2, 0, 4,      [0, 0, 0, 0,
+#  1, 2, 3, 4,  ->   0, 2, 0, 4,
+#  0, 2, 3, 4]       0, 0, 0, 0]
+
 import numpy
+import math
+rectangle = numpy.matrix('1 2 0 4; 1 2 3 4; 0 2 3 4')
+def set_zero(matrix):
+    # which rows and columns to change to zeroes
+    rows = []
+    columns = []
+    # add which rows have zeroes to the rows list
+    for i in range(len(rectangle)):
+        if 0 in rectangle[i]:
+            rows.append(i)
+            print(rectangle[i])
 
-a = [1,2,3,
-     4,5,6,
-     7,8,9]
-
-def rotate(square):
-    reversed_list = []
-    if len(square) % math.sqrt(len(square)) != 0:
-        return 'not a square'
-    split = list(reversed(square))
-    split = numpy.array_split(split,math.sqrt(len(split)))
-
-    zipped = list(zip(*split))
-    zipped = list(reversed(zipped))
-    return zipped
-print(rotate(a))
+    # add which columns have zeroes to the columns list
+    rectangle2 = rectangle.transpose(1,0)
+    for i in range(len(rectangle2)):
+        if 0 in rectangle2[i]:
+            columns.append(i)
+            print(rectangle[i])
+    
+    print('')
+    # print(rectangle[1,0])
+    print(rectangle2)
+    print('rows')
+    print(rows)
+    print('columns')
+    print(columns)
+    return rectangle
+print(set_zero(rectangle))
