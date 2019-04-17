@@ -218,19 +218,15 @@
 # Example:
 # stringRotation("waterbottle", "erbottlewat")
 
-# def isSubstring(s1, s2):
-#     if s2 in s1:
-#         return True
-#     return False
+def isSubstring(s1, s2):
+    if s2 in s1:
+        return True
+    return False
 
 # print(isSubstring('hihello', 'hi'))
 
 def stringRotation(string, rotated):
-    for i in range(len(string)):
-        string = string + string[0]
-        string = string[1:]
-        if rotated == string:
-            return True
-    return False
+    string = 2*string
+    return isSubstring(string, rotated)
 
 print(stringRotation("waterbottle", "erbottlewat"))
