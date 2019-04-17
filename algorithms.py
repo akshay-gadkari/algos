@@ -223,10 +223,10 @@ def isSubstring(s1, s2):
         return True
     return False
 
-# print(isSubstring('hihello', 'hi'))
-
 def stringRotation(string, rotated):
     string = 2*string
-    return isSubstring(string, rotated)
+    if len(string) == len(rotated)*2:
+        return isSubstring(string, rotated)
+    else: False
 
 print(stringRotation("waterbottle", "erbottlewat"))
