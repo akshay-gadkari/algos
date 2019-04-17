@@ -193,18 +193,18 @@ def set_zero(matrix):
     for i in range(len(rectangle)):
         if 0 in rectangle[i]:
             rows.append(i)
-            print(rectangle[i])
+            # print(rectangle[i])
 
     # add which columns have zeroes to the columns list
     rectangle2 = rectangle.transpose(1,0)
     for i in range(len(rectangle2)):
         if 0 in rectangle2[i]:
             columns.append(i)
-            print(rectangle[i])
-    
+    for r in rows:
+        rectangle[r] = 0
+    for s in columns:
+        rectangle[:,s] = 0
     print('')
-    # print(rectangle[1,0])
-    print(rectangle2)
     print('rows', rows)
     print('columns', columns)
     return rectangle
