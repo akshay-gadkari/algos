@@ -182,30 +182,55 @@
 #  1, 2, 3, 4,  ->   0, 2, 0, 4,
 #  0, 2, 3, 4]       0, 0, 0, 0]
 
-import numpy
-import math
-rectangle = numpy.matrix('1 2 0 4; 1 2 3 4; 0 2 3 4')
-def set_zero(matrix):
-    # which rows and columns to change to zeroes
-    rows = []
-    columns = []
-    # add which rows have zeroes to the rows list
-    for i in range(len(rectangle)):
-        if 0 in rectangle[i]:
-            rows.append(i)
-            # print(rectangle[i])
+# import numpy
+# import math
+# rectangle = numpy.matrix('1 2 0 4; 1 2 3 4; 0 2 3 4')
+# def set_zero(matrix):
+#     # which rows and columns to change to zeroes
+#     rows = []
+#     columns = []
+#     # add which rows have zeroes to the rows list2
+#     for i in range(len(rectangle)):
+#         if 0 in rectangle[i]:
+#             rows.append(i)
+#     # add which columns have zeroes to the columns list
+#     rectangle2 = rectangle.transpose(1,0)
+#     for i in range(len(rectangle2)):
+#         if 0 in rectangle2[i]:
+#             columns.append(i)
+#     for r in rows:
+#         rectangle[r] = 0
+#     for s in columns:
+#         rectangle[:,s] = 0
+#     print('')
+#     # print('rows', rows)
+#     # print('columns', columns)
+#     return rectangle
+# print(set_zero(rectangle))
 
-    # add which columns have zeroes to the columns list
-    rectangle2 = rectangle.transpose(1,0)
-    for i in range(len(rectangle2)):
-        if 0 in rectangle2[i]:
-            columns.append(i)
-    for r in rows:
-        rectangle[r] = 0
-    for s in columns:
-        rectangle[:,s] = 0
-    print('')
-    print('rows', rows)
-    print('columns', columns)
-    return rectangle
-print(set_zero(rectangle))
+
+# Chapter 01 - Problem 09 - String Rotation - CTCI 6th Edition page 91
+
+# Problem Statement:
+# Assume you have a method isSubstring() which checks if one word is a substring of
+# another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using
+# only one call to isSubstring().
+# Example:
+# stringRotation("waterbottle", "erbottlewat")
+
+# def isSubstring(s1, s2):
+#     if s2 in s1:
+#         return True
+#     return False
+
+# print(isSubstring('hihello', 'hi'))
+
+def stringRotation(string, rotated):
+    for i in range(len(string)):
+        string = string + string[0]
+        string = string[1:]
+        if rotated == string:
+            return True
+    return False
+
+print(stringRotation("waterbottle", "erbottlewat"))
