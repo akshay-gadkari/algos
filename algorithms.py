@@ -235,35 +235,31 @@
 """ 2.1 Remove Dups: Write code to remove duplicates from an unsorted linked list.
 FOLLOW UP: How would you solve this problem if a temporary buffer is not allowed? """
 
-class llNode:
-    def __init__(self, val, next=None):
-        self.val = val
-        self.next = next
+# class llNode:
+#     def __init__(self, val, next=None):
+#         self.val = val
+#         self.next = next
 
-#from online
-def deleteDups(self, head):
-    if head is None:
-        return 'None'
-    curr = head
-    while curr is not None:
-        inner = curr
-        while inner.next is not None:
-            if inner.next.val == curr.val:
-                inner.next = inner.next.next
-            else:
-                inner = inner.next
-        curr = curr.next
-    return head
+# #from online
+# def deleteDups(self, head):
+#     if head is None:
+#         return 'None'
+#     curr = head
+#     while curr is not None:
+#         inner = curr
+#         while inner.next is not None:
+#             if inner.next.val == curr.val:
+#                 inner.next = inner.next.next
+#             else:
+#                 inner = inner.next
+#         curr = curr.next
+#     return head
 
-1 = llNode("3")
-2 = llNode("7")
-3 = llNode("10")
-4 = llNode("7")
-print(1.nextNode)
-
-# node1.nextNode = node2
-# node2.nextNode = node3
-# node3.nextNode = node4
+# 1 = llNode("3")
+# 2 = llNode("7")
+# 3 = llNode("10")
+# 4 = llNode("7")
+# print(1.nextNode)
 
 """ 2.2 Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list. """
 class llnode:
@@ -274,4 +270,14 @@ class llnode:
 def kth_element(self, head):
     if head is None:
         return None
-    
+    curr = head
+    while curr is not None:
+        curr = curr.next
+        
+            
+
+1 = llNode("3")
+2 = llNode("7")
+3 = llNode("10")
+4 = llNode("7")
+print(1.next)
