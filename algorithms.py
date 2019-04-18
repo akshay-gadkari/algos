@@ -218,15 +218,47 @@
 # Example:
 # stringRotation("waterbottle", "erbottlewat")
 
-def isSubstring(s1, s2):
-    if s2 in s1:
-        return True
-    return False
+# def isSubstring(s1, s2):
+#     if s2 in s1:
+#         return True
+#     return False
 
-def stringRotation(string, rotated):
-    string = 2*string
-    if len(string) == len(rotated)*2:
-        return isSubstring(string, rotated)
-    else: False
+# def stringRotation(string, rotated):
+#     string = 2*string
+#     if len(string) == len(rotated)*2:
+#         return isSubstring(string, rotated)
+#     else: False
 
-print(stringRotation("waterbottle", "erbottlewat"))
+# print(stringRotation("waterbottle", "erbottlewat"))
+
+
+""" 2.1 Remove Dups: Write code to remove duplicates from an unsorted linked list.
+FOLLOW UP: How would you solve this problem if a temporary buffer is not allowed? """
+
+class llNode:
+    def __init__(self, val, next=None):
+        self.val = val
+        self.next = next
+
+#from online
+def deleteDups(self, head):
+    if head is None:
+        return 'None'
+    curr = head
+    while curr is not None:
+        inner = curr
+        while inner.next is not None:
+            if inner.next.val == curr.val:
+                inner.next = inner.next.next
+            else inner = inner.next
+        curr = curr.next
+    return head
+
+1 = llNode("3")
+2 = llNode("7")
+3 = llNode("10")
+4 = llNode("7")
+print(1.nextNode)
+# node1.nextNode = node2
+# node2.nextNode = node3
+# node3.nextNode = node4
