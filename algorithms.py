@@ -250,7 +250,8 @@ def deleteDups(self, head):
         while inner.next is not None:
             if inner.next.val == curr.val:
                 inner.next = inner.next.next
-            else inner = inner.next
+            else:
+                inner = inner.next
         curr = curr.next
     return head
 
@@ -259,6 +260,18 @@ def deleteDups(self, head):
 3 = llNode("10")
 4 = llNode("7")
 print(1.nextNode)
+
 # node1.nextNode = node2
 # node2.nextNode = node3
 # node3.nextNode = node4
+
+""" 2.2 Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list. """
+class llnode:
+    def __init__(self, value, next=None):
+        self.value = value
+        self.next = next
+
+def kth_element(self, head):
+    if head is None:
+        return None
+    
