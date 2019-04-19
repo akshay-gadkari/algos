@@ -274,8 +274,6 @@ node3 = Node(37)
 node1.next = node2
 node2.next = node3
 
-import numpy
-
 def kth_element(self, k):
     curr = self
     position = 0
@@ -291,8 +289,7 @@ def kth_element(self, k):
     if curr is None:
         # print(position - k + 1)
         matrix = matrix[::-1]
-        print(matrix)
-        print(matrix[k-1])
+        print(matrix[k-1][0])
 
 kth_element(node1, 2)
 
