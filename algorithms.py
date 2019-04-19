@@ -282,12 +282,9 @@ def kth_element(self, k):
         position += 1
         appended = [curr.value, position]
         matrix.append(appended)
-        # print(curr.value, position)
-        # print(matrix[0])
         curr.position = position
         curr = curr.next
     if curr is None:
-        # print(position - k + 1)
         matrix = matrix[::-1]
         print(matrix[k-1][0])
 
