@@ -271,13 +271,29 @@ node1 = Node(12)
 node2 = Node(99)
 node3 = Node(37)
 
-node1.next = node2 # 12->99
-node2.next = node3 # 99->37
+node1.next = node2
+node2.next = node3
 
-def kth_element(self):
+import numpy
+
+def kth_element(self, k):
     curr = self
+    position = 0
+    matrix = []
     while curr is not None:
-        print(curr.value)
+        position += 1
+        appended = [curr.value, position]
+        matrix.append(appended)
+        # print(curr.value, position)
+        # print(matrix[0])
+        curr.position = position
         curr = curr.next
+    if curr is None:
+        # print(position - k + 1)
+        matrix = matrix[::-1]
+        print(matrix)
+        print(matrix[k-1])
 
-kth_element(node1)
+kth_element(node1, 2)
+
+
