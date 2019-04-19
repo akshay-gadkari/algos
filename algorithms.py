@@ -262,22 +262,22 @@ FOLLOW UP: How would you solve this problem if a temporary buffer is not allowed
 # print(1.nextNode)
 
 """ 2.2 Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list. """
-class llnode:
+class Node:
     def __init__(self, value, next=None):
         self.value = value
         self.next = next
 
-def kth_element(self, head):
-    if head is None:
-        return None
-    curr = head
-    while curr is not None:
-        curr = curr.next
-        
-            
+node1 = Node(12)
+node2 = Node(99)
+node3 = Node(37)
 
-1 = llNode("3")
-2 = llNode("7")
-3 = llNode("10")
-4 = llNode("7")
-print(1.next)
+node1.next = node2 # 12->99
+node2.next = node3 # 99->37
+
+def kth_element(self):
+    curr = self
+    while curr is not None:
+        print(curr.value)
+        curr = curr.next
+
+kth_element(node1)
