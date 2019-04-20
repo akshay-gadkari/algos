@@ -314,9 +314,9 @@ node3.next = node4
 def delete_middle_node(self, node):
     curr = self
     while curr is not None:
-        if curr.value == node:
+        if curr.next == node:
             curr.next = curr.next.next
         print(curr.value)
         curr = curr.next
 
-delete_middle_node(node1, 99)
+delete_middle_node(node1, node2)
