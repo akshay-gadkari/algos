@@ -262,6 +262,41 @@ FOLLOW UP: How would you solve this problem if a temporary buffer is not allowed
 # print(1.nextNode)
 
 """ 2.2 Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list. """
+# class Node:
+#     def __init__(self, value, next=None):
+#         self.value = value
+#         self.next = next
+
+# node1 = Node(12)
+# node2 = Node(99)
+# node3 = Node(37)
+
+# node1.next = node2
+# node2.next = node3
+
+# def kth_element(self, k):
+#     curr = self
+#     position = 0
+#     matrix = []
+#     while curr is not None:
+#         position += 1
+#         appended = [curr.value, position]
+#         matrix.append(appended)
+#         curr.position = position
+#         curr = curr.next
+#     if curr is None:
+#         matrix = matrix[::-1]
+#         print(matrix[k-1][0])
+
+# kth_element(node1, 2)
+
+
+""" 2.3 Delete Middle Node: Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node, not necessarily the exact middle) of a singly linked list, given only access to that node. 
+
+EXAMPLE
+Input: the node c from the linked list a -> b -> c -> d -> e -> f
+Result: nothing is returned, but the new linked list looks like a -> b -> d -> e -> f"""
+
 class Node:
     def __init__(self, value, next=None):
         self.value = value
@@ -270,24 +305,18 @@ class Node:
 node1 = Node(12)
 node2 = Node(99)
 node3 = Node(37)
+node4 = Node(22)
 
 node1.next = node2
 node2.next = node3
+node3.next = node4
 
-def kth_element(self, k):
+def delete_middle_node(self, node):
     curr = self
-    position = 0
-    matrix = []
     while curr is not None:
-        position += 1
-        appended = [curr.value, position]
-        matrix.append(appended)
-        curr.position = position
+        if curr.value == node:
+            curr.next = curr.next.next
+        print(curr.value)
         curr = curr.next
-    if curr is None:
-        matrix = matrix[::-1]
-        print(matrix[k-1][0])
 
-kth_element(node1, 2)
-
-
+delete_middle_node(node1, 99)
