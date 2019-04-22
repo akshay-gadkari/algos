@@ -291,16 +291,49 @@ FOLLOW UP: How would you solve this problem if a temporary buffer is not allowed
 # kth_element(node1, 2)
 
 
-""" 2.3 Delete Middle Node: Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node, not necessarily the exact middle) of a singly linked list, given only access to that node. 
+# """ 2.3 Delete Middle Node: Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node, not necessarily the exact middle) of a singly linked list, given only access to that node. 
 
+# EXAMPLE
+# Input: the node c from the linked list a -> b -> c -> d -> e -> f
+# Result: nothing is returned, but the new linked list looks like a -> b -> d -> e -> f"""
+
+# class Node:
+#     def __init__(self, value, next=None):
+#         self.value = value
+#         self.next = next
+
+# node1 = Node(12)
+# node2 = Node(99)
+# node3 = Node(37)
+# node4 = Node(22)
+
+# node1.next = node2
+# node2.next = node3
+# node3.next = node4
+
+# def delete_middle_node(self, node):
+#     curr = self
+#     while curr is not None:
+#         if curr.next == node:
+#             curr.next = curr.next.next
+#         print(curr.value)
+#         curr = curr.next
+
+# delete_middle_node(node1, node2)
+
+
+
+""" 2.4 Partition: Write code to partition a linked list around a value x, such that all nodes less than x come before all nodes greater than or equal to x. If x is contained within the list, the values of x only need to be after the elements less than x. The partition element x can appear anywhere in the "right partition"; it does not need to appear between the left and right partitions. 
 EXAMPLE
-Input: the node c from the linked list a -> b -> c -> d -> e -> f
-Result: nothing is returned, but the new linked list looks like a -> b -> d -> e -> f"""
+Input: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1 with partition x=5
+Output: 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
+"""
 
 class Node:
-    def __init__(self, value, next=None):
+    def __init__(self, value, next=None, prev=None):
         self.value = value
         self.next = next
+        self.prev = prev
 
 node1 = Node(12)
 node2 = Node(99)
@@ -311,12 +344,25 @@ node1.next = node2
 node2.next = node3
 node3.next = node4
 
-def delete_middle_node(self, node):
+node2.prev = node1
+node3.prev = node2
+node4.prev = node3
+
+def partition(self, num):
     curr = self
+    passed_num = False
+    matrix = []
     while curr is not None:
-        if curr.next == node:
-            curr.next = curr.next.next
+        matrix.append(curr.value)
+        if curr.value == num:
+            passed_num = num
+        if passed_num == num and curr.value < passed_num:
+            # move current node to before node 37
+            print('prev is', curr.prev.value, 'and curr is', curr.value)
+            curr.prev.next = curr.next # skips the current value
+            curr.next = curr.prev
         print(curr.value)
         curr = curr.next
+    print(matrix)
 
-delete_middle_node(node1, node2)
+partition(node1, 37)
