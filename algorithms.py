@@ -329,40 +329,113 @@ Input: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1 with partition x=5
 Output: 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
 """
 
+# class Node:
+#     def __init__(self, value, next=None, prev=None):
+#         self.value = value
+#         self.next = next
+#         self.prev = prev
+
+# node1 = Node(12)
+# node2 = Node(99)
+# node3 = Node(37)
+# node4 = Node(22)
+# node5 = Node(50)
+
+# node1.next = node2
+# node2.next = node3
+# node3.next = node4
+# node4.next = node5
+
+# node2.prev = node1
+# node3.prev = node2
+# node4.prev = node3
+# node5.prev = node4
+
+# def partition(self, num):
+#     curr = self
+#     passed_num = False
+#     matrix = []
+#     counter = 0
+#     while curr is not None:
+#         matrix.append(curr.value)
+#         if curr.value == num:
+#             passed_num = num
+#         if passed_num == num and curr.value < passed_num:
+#             # move current node to before node 37
+#             print('prev is', curr.prev.value, 'and curr is', curr.value, 'next is', curr.next.value)
+#             curr.prev.next = curr.next # skips the current value
+#             curr.next = curr.prev
+#         print(curr.value)
+#         curr = curr.next
+#     # while curr is not None:
+#     #     if curr.value == num and counter == 0:
+#     #         curr.prev.next = curr.next
+#     #         counter += 1
+#     print(matrix)
+
+# partition(node1, 37)
+
+
+
+'''2.5 Sum Lists: You have two numbers represented by a linked list, where each node contains a single digit. The digits are stored in reverse order, such that the 1's digit is at the head of the list. Write a function that adds the two numbers and returns the sum as a linked list. 
+EXAMPLE
+Input: (7 -> 1 -> 6) + (5 -> 9 -> 2). That is, 617 + 295.
+Output: 2 -> 1 -> 9. That is, 912.'''
+
 class Node:
-    def __init__(self, value, next=None, prev=None):
-        self.value = value
+    def __init__(self, data, next=None):
+        self.data = data
         self.next = next
-        self.prev = prev
 
-node1 = Node(12)
-node2 = Node(99)
-node3 = Node(37)
-node4 = Node(22)
+class Ll:
+    def __init__(self):
+        self.head = None
+    def push(self, new_data):
+        new_node = Node(new_data)
+        new_node.next = self.head
+        self.head = new_node
 
-node1.next = node2
-node2.next = node3
-node3.next = node4
+first = Ll()
+second = Ll()
 
-node2.prev = node1
-node3.prev = node2
-node4.prev = node3
+first.push(7)
+first.push(1)
+first.push(6)
 
-def partition(self, num):
+second.push(5)
+second.push(9)
+second.push(2)
+
+combined = []
+
+def first_list(self):
     curr = self
-    passed_num = False
-    matrix = []
+    list1 = []
     while curr is not None:
-        matrix.append(curr.value)
-        if curr.value == num:
-            passed_num = num
-        if passed_num == num and curr.value < passed_num:
-            # move current node to before node 37
-            print('prev is', curr.prev.value, 'and curr is', curr.value)
-            curr.prev.next = curr.next # skips the current value
-            curr.next = curr.prev
-        print(curr.value)
+        list1.append(curr.data)
         curr = curr.next
-    print(matrix)
+    map(str, list1)
+    list1 = map(str, list1)
+    list1 = ''.join(list1)
+    print(list1)
+    combined.append(list1)
+first_list(first.head)
 
-partition(node1, 37)
+def second_list(self):
+    curr = self
+    list2 = []
+    while curr is not None:
+        list2.append(curr.data)
+        curr = curr.next
+    map(str, list2)
+    list2 = map(str, list2)
+    list2 = ''.join(list2)
+    print(list2)
+    combined.append(list2)
+second_list(second.head)
+
+def add():
+    results = list(map(int, combined))
+    result = results[0] + results[1]
+    print(result)
+add()
