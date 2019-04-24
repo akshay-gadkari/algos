@@ -6,10 +6,10 @@ class Node:
         self.next = next
         
 node1 = Node(1)
-node2 = Node(1)
-node3 = Node(1)
-node4 = Node(1)
-node5 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+node4 = Node(4)
+node5 = Node(5)
 
 node1.next = node2
 node2.next = node3
@@ -17,3 +17,10 @@ node2.next = node3
 node4.next = node2
 node2.next = node5
 
+def intersect(self):
+    curr = self
+    while curr is not None:
+        print(curr.value)
+        curr = curr.next
+
+intersect(node1)
