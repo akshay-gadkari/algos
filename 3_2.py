@@ -33,6 +33,10 @@ def popstack2():
     del array[stacklen2]
 #popstack2()
 
+def minstack2():
+    return min(array[stacklen:stacklen2])
+print(minstack2)
+
 def pushsstack3(insert):
     array.insert(len(array), insert)
 #pushsstack3('hi')
@@ -40,3 +44,7 @@ def pushsstack3(insert):
 def popstack3():
     array.pop()
 #popstack3()
+
+def minstack3():
+    return min(array[stacklen2:])
+print(minstack3)
