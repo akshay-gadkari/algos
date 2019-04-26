@@ -33,26 +33,12 @@ inputstack2('hi')
 
 def popstack2():
     del array[stacklen*2]
-popstack2()
+#popstack2()
 
 def inputstack3(insert):
     array.insert(len(array), insert)
-inputstack3('hi')
+#inputstack3('hi')
 
 def popstack3():
     array.pop()
-popstack3()
-
-# class Stack:
-#     def __init__(self, n):
-#         self.array = [0] * self.n
-#         self.top = [-1] * 3
-#         self.free = 0
-
-#         self.next = [i + 1 for i in range(self.n)]
-#         self.next[self.n - 1] = -1
-#     def isEmpty(self, sn): 
-#         return self.top[sn] == -1
-#     def isFull(self): 
-#         return self.free == -1
-    
+#popstack3()
