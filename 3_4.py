@@ -18,11 +18,16 @@ def enqueue(e):
     s1.append(e)
 
 def dequeue():
-    if len(s2) == 0:
-        while len(s1 != 0):
-            s2.append(s1[0])
-            s1.pop(0)
-    return s2.pop
+    s2.append(s1[0])
+    s1.pop()
+    print('s2', s2)
+dequeue()
 
+# def dequeue():
+#     if len(s2) == 0:
+#         while len(s1) != 0:
+#             s2.append(s1[0])
+#             del s1[0]
+#     return s2.pop
+# print(dequeue())
 # enqueue(4)
-print(s1)
