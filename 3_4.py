@@ -20,7 +20,8 @@ def enqueue(e):
 def dequeue():
     if len(s2) == 0:
         while len(s1 != 0):
-            s2.append(s1[(len(s1)) - 1])
+            s2.append(s1[0])
+            s1.pop(0)
     return s2.pop
 
 # enqueue(4)
