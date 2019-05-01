@@ -19,7 +19,7 @@ def enqueue(e):
 
 def dequeue():
     s2.append(s1[0])
-    s1.pop()
+    s1.pop(0)
     print('s2', s2)
 dequeue()
 
