@@ -15,18 +15,9 @@ def pop(s1):
     s1.pop()
 
 def sortstack(s1):
-    # if len(tempstack) == 0:
-    #     tempstack.append(min(s1))
-    #     s1.pop(0)
-    # if len(s1) > 0:
-    #     for i in range(len(s1)):
-    #         if i > max(tempstack):
-    #             tempstack.append(min(s1))
-    #             s1.pop(min(s1))
     while len(s1) > 0:
         tempstack.append(min(s1))
         s1.remove(min(s1))
-    print(s1)
     return tempstack
 
 print(sortstack(s1))
