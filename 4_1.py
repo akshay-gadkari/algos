@@ -14,8 +14,24 @@ def find(g, a, b):
         if key == a:
             for i in value:
                 if i == b:
-                    print('true')
+                    print('yes')
                     return
-            # if not, search the values of those keys
-            
-find(graph, 'A', 'B')
+                else:
+                    continue # is this right?
+            for i in value:
+                for key, value in graph.items():
+                    if key == i:
+                        print('yes', key, value)
+                        for i in value:
+                            if i == b:
+                                print('found it!')
+                            else:
+                                print('not found')
+                        return
+                    else:
+                        print('no', key, value)
+                        # return
+        else:
+            print('no node with that name')
+
+find(graph, 'A', 'D')
