@@ -19,8 +19,8 @@ class Tree:
 
 tree = Tree()
 tree.addEdge(0, 1)
-tree.addEdge(1, 2)
 tree.addEdge(1, 3)
+tree.addEdge(1, 2)
 tree.addEdge(3, 4)
 tree.addEdge(2, 5)
 tree.addEdge(4, 6)
@@ -29,12 +29,10 @@ tree.addEdge(4, 6)
 def dfs(tree, element, depth):
     visited = []
     a = tree.get(element)
-    # depth = 1
     if a is not None and len(a) > 0:
-        visited.append(a)
+        for i in a:
+            print('element', i, 'with a depth of', depth)
+            depth += 1
+            dfs(tree, i, depth)
         depth += 1
-        print('element', a, 'with a depth of', depth)
-        a = a[0]
-        dfs(tree, a, depth)
-    # print('visited:', visited[0])
 dfs(tree, 0, 0)
