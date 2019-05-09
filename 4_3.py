@@ -14,6 +14,8 @@ class Tree:
         self.tree[root].append(child)
     def get(self, position):
         return self.tree[position]
+    # def getChild(self, position, child):
+    #     return self.tree[position].get(child)
 
 tree = Tree()
 tree.addEdge(0, 1)
@@ -24,9 +26,13 @@ tree.addEdge(3, 4)
 
 def dfs(tree, element):
     visited = []
-    a = tree.get(0)
-    if a is not None and a not in visited:
-        
+    a = tree.get(element)
+    depth = 0
+    if a is not None:
         visited.append(a)
-    print('visited:', visited[0])
-dfs(tree, 2)
+        depth += 1
+        print('element', a, 'with a depth of', depth)
+        a = a[0]
+        dfs(tree, a)
+    # print('visited:', visited[0])
+dfs(tree, 0)
