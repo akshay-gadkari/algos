@@ -14,8 +14,6 @@ class Tree:
         self.tree[root].append(child)
     def get(self, position):
         return self.tree[position]
-    # def getChild(self, position, child):
-    #     return self.tree[position].get(child)
 
 tree = Tree()
 tree.addEdge(0, 1)
