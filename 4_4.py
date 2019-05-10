@@ -1,4 +1,5 @@
 # Chapter 04 - Problem 04 - Check Balanced
+
 # Problem Statement:
 # Implement a function to check if a binary tree is balanced.
 # For the purposes of this question, a balanced tree is defined to be a tree
@@ -23,21 +24,30 @@ class Node:
         children = left + right
         return children
 
+# node5 = Node(5)
 node = Node(1)
 node4 = Node(4)
 node2 = Node(2, left = node4)
 node3 = Node(3)
-# node2.newNode(6)
 node.newNode(1, left = node2, right = node3)
 
-def check(n):
+def check(n, counter = 0):
     try:
         if n.left is not None:
-            print(n.left.v)
+            print(n.v, "left:", n.left.v)
         if n.right is not None:
-            print(n.right.v)
+            print(n.v, "right", n.right.v)
     except AttributeError:
         return
-    check(n.right)
-    check(n.left)
+    if not (n.right is not None and n.left is not None):
+        # print('this one\'s balanced')
+        counter += 1
+    # else:
+    #     counter += 1
+    if counter >= 3:
+        print('not balanced')
+    else:
+        print('balanced')
+    check(n.right, counter)
+    check(n.left, counter)
 check(node)
