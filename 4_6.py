@@ -7,6 +7,7 @@ class Node:
     def __init__(self, v, left=None, right=None):
         self.left = left
         self.right = right
+        self.v = v
     def newNode(self, v, left=None, right=None):
         self.v = v
         self.left = left
@@ -14,4 +15,18 @@ class Node:
 
 node = Node(1)
 node2 = Node(2)
+node3 = Node(3)
 
+node.newNode(1, left = node2, right = node3)
+
+def next(n):
+    if n.left is not None:
+        print(n.left.v)
+        return
+    if n.right is not None:
+        print(n.right)
+        return
+    else:
+        print('no node after this')
+
+next(node)
