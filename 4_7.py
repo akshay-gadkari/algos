@@ -18,17 +18,21 @@ def build(p, d):
         # if something is depended on, but also depends on something else
         if dependencies[i][0] in dependencies1:
             # check what it depends on, and what that depends on, and ...
+            print('true')
             check(dependencies[i][0])
+            return
+    print('false')
     return
 
 build(projects, dependencies)
 
 counter = 0
-def check(dependency, counter):
+def check(dep):
     for i in range(len(dependencies)):
-        if dependency == dependencies[i][1]:
-            dependency == dependencies[i][0]
+        if dep == dependencies[i][1]:
+            dep == dependencies[i][0]
+            print(dep)
         else:
-            first_dependencies.append(dependency)
+            first_dependencies.append(dep)
             print(first_dependencies)
     return
