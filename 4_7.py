@@ -25,6 +25,10 @@ def check(dep):
     print('first', first_dependencies)
     return
 
+# def next:
+#     for i in range(len(dependencies)):
+#         if 
+
 def build(p, d):
     for i in range(len(dependencies)):
         # put all the dependent projects in a list
