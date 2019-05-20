@@ -46,5 +46,6 @@ def ancestor(node, n1, n2):
         if node.right is not None:
             node = node.right()
             ancestor(node, n1, n2)
+    return
 
 ancestor(node, node3, node4)
