@@ -12,15 +12,27 @@ class node:
         self.right = right
 
 class tree:
-    def __init__(self):
-        self.root = None
-    def insert(self, data, left=None, right=None):
-        if self.root:
-            return self.root.insert(data)
-        else:
-            self.root = node(data, left = None, right = None)
-            return True
+    def __init__(self, v):
+        self.root = node(v)
+    def insertleft(self, v, data, left=None, right=None):
+        self.left = node(data)
+        return True
+    def insertright(self, v, data, left=None, right=None):
+        self.right = node(data)
+        return True
+        
+tree = tree(0)
+tree.insertleft(0, 1)
+tree.insertright(0, 2)
 
-tree = tree()
-tree.insert(1, left = 2, right = 3)
-# tree.insert(3, left = 5, right = 6)
+allnodes = []
+def parse(tree, allnodes):
+    if tree.root:
+        allnodes.append(tree.root.v)
+    if tree.left.v:
+        allnodes.append(tree.left.v)
+    if tree.right.v:
+        allnodes.append(tree.right.v)
+    print(allnodes)
+
+parse(tree, allnodes)
