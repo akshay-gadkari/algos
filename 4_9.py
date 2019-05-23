@@ -5,50 +5,6 @@
 # if there exists a node n in T1 such that the subtree of n is identical to T2. That is,
 # if you cut off the tree at node n, the two trees would be identical.
 
-# class node:
-#     def __init__(self, v, left=None, right=None):
-#         self.v = v
-#         self.left = left
-#         self.right = right
-
-# class tree:
-#     def __init__(self, v):
-#         self.root = node(v)
-#     def insertleft(self, v, data, left=None, right=None):
-#         self.left = node(data)
-#         return True
-#     def insertright(self, v, data, left=None, right=None):
-#         self.right = node(data)
-#         return True
-
-
-
-# tree = tree(0)
-# tree.insertleft(0, 1)
-# tree.insertleft(1, 3)
-# tree.insertright(0, 2)
-
-# allnodes = []
-# def parse(tree, allnodes):
-#     try:
-#         if tree.root:
-#             allnodes.append(tree.root.v)
-#             print(allnodes)
-#     except AttributeError:
-#         print('')
-#     if tree.left:
-#         allnodes.append(tree.left.v)
-#         parse(tree.left, allnodes)
-#         print(allnodes)
-#     if tree.right:
-#         allnodes.append(tree.right.v)
-#         parse(tree.right, allnodes)
-#         print(allnodes)
-#     print(allnodes)
-
-# parse(tree, allnodes)
-
-
 class node:
     def __init__(self, v, left=None, right=None):
         self.v = v
