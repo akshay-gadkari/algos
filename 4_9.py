@@ -16,13 +16,11 @@ node2 = node(2)
 node3 = node(3)
 node4 = node(4)
 node5 = node(5)
-# node6 = node(6)
 
 node1.left = node2
 node1.right = node3
 node2.left = node4
 node2.right = node5
-# node3.left = node6
 
 nodes = []
 def parse(node):
@@ -40,5 +38,4 @@ def parse(node):
     if node.left is not None and node.right is not None:
         parse(node.left)
         parse(node.right)
-        
 parse(node1)
