@@ -7,10 +7,11 @@ matrix =[[1,  2,  3,  4 ],
 
 def rotate(m):
     m2 = []
-    for i in m:
-        print(i)
-        for j in i:
-            if i[0] == j:
-                print(j)
+    for i in range(len(m)):
+        res = []
+        for j in range(len(m)):
+            res.append(m[j][i])
+        m2.append(res[::-1])
+    print(m2)
     return
 rotate(matrix)
