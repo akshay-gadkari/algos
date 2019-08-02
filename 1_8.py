@@ -9,15 +9,20 @@ def zero_matrix(m):
     list_of_zeroes = []
     zeroes = 0
     for i in range(len(m)):
-        print('i', i)
+        # print('i', i)
         for j in range(len(m[0])):
-            print('j is', j)
+            # print('j is', j)
             if m[i][j] == 0:
                 print(m[i][j], i, j)
                 m2.append(i)
                 m2.append(j)
                 list_of_zeroes.append(m2)
+                print('m[i]', m[i])
                 m2 = []
+    for k in range(len(m2)):
+        
+    # for l in range(len(m2[0])):
+        
     print(list_of_zeroes)
 
 zero_matrix(m)
