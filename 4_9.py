@@ -22,6 +22,7 @@ node1.right = node3
 node2.left = node4
 node2.right = node5
 
+
 nodes = []
 def parse(node):
     nodes.append(node.v)
