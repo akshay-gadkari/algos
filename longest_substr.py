@@ -20,6 +20,7 @@
 #              Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
 s = 'abcdefgggghijklmnopqrstuvwxyz'
+
 def longest_substr(s):
     s2 = ''
     longest = ''
@@ -27,15 +28,15 @@ def longest_substr(s):
         if s[i] != s[i-1]:
             s2 = s2 + s[i]
             # print('same')
-            #print(s2)
+            # print(s2)
         else:
             if len(s2) < len(longest):
-                longest += s2
+                longest = += s2
                 s2 = ''
     if len(s2) < len(longest):
-        print(s2)
-    else:
         print(longest)
+    else:
+        print(s2)
     return
 
 longest_substr(s)
