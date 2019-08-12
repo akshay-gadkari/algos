@@ -14,18 +14,37 @@ nums2 = [34, 45]
 
 def median(nums1, nums2):
     ordered = []
-    combined = nums1 + nums2
-    lowest = combined[0]
+    # combined = nums1 + nums2
+    # lowest = combined[0]
+    # i = 0
+    # while len(combined) > 0:
+    #     if combined[i] < lowest:
+    #         lowest = combined[i]
+    #     i += 1
+    #     if i == len(combined):
+    #         ordered.append(lowest)
+    #         combined.remove(lowest)
+    #         if combined:
+    #             lowest = combined[0]
+    #         i = 0
     i = 0
-    while len(combined) > 0:
-        if combined[i] < lowest:
-            lowest = combined[i]
-        i += 1
-        if i == len(combined):
-            ordered.append(lowest)
-            combined.remove(lowest)
-            if combined:
-                lowest = combined[0]
-            i = 0
+    j = 0
+    # while i + j < (len(nums1) + len(nums2)):
+    while i + j < (len(nums1) + len(nums2)):
+        print(i, j)
+        if i < len(nums1) and j < len(nums2):
+            if nums1[i] < nums2[j]:
+                ordered.append(nums1[i])
+                i += 1
+            else:
+                ordered.append(nums2[j])
+                j += 1
+        else:
+            if i < len(nums1):
+                ordered.append(nums1[i])
+                i += 1
+            if j < len(nums2):
+                ordered.append(nums2[j])
+                j += 1
     print(ordered)
 median(nums1, nums2)
