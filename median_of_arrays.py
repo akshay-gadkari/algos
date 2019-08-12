@@ -8,7 +8,24 @@
 # The median is 2.0
 
 # Example 2:
-nums1 = [1, 2]
-nums2 = [3, 4]
+nums1 = [3, 4, 100]
+nums2 = [34, 45]
 # The median is (2 + 3)/2 = 2.5
 
+def median(nums1, nums2):
+    ordered = []
+    combined = nums1 + nums2
+    lowest = combined[0]
+    i = 0
+    while len(combined) > 0:
+        if combined[i] < lowest:
+            lowest = combined[i]
+        i += 1
+        if i == len(combined):
+            ordered.append(lowest)
+            combined.remove(lowest)
+            if combined:
+                lowest = combined[0]
+            i = 0
+    print(ordered)
+median(nums1, nums2)
