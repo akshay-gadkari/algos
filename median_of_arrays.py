@@ -8,10 +8,11 @@
 # The median is 2.0
 
 # Example 2:
-nums1 = [3, 4, 100]
+nums1 = [3, 4]
 nums2 = [34, 45]
 # The median is (2 + 3)/2 = 2.5
 
+import statistics
 def median(nums1, nums2):
     ordered = []
     i = 0
@@ -29,8 +30,10 @@ def median(nums1, nums2):
             if i < len(nums1):
                 ordered.extend(nums1[i:])
                 i += 1
+                break
             if j < len(nums2):
                 ordered.extend(nums2[j:])
                 j += 1
-    print(ordered)
+                break
+    print(statistics.median(ordered))
 median(nums1, nums2)
