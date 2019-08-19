@@ -18,11 +18,8 @@
 # Input: "(]"
 # Output: false
 
-
-s = '(){}[]'
-lset = '({['
-rset = ')}]'
-stack = []
+open_list = ["[","{","("] 
+close_list = ["]","}",")"] 
 
 def valid_parentheses(s):
     left = 0
