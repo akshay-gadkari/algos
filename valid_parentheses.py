@@ -22,6 +22,7 @@
 s = '(){}[]'
 lset = '({['
 rset = ')}]'
+stack = []
 
 def valid_parentheses(s):
     left = 0
@@ -31,6 +32,13 @@ def valid_parentheses(s):
             left += 1
         if i in rset:
             right += 1
-    print(left, right)
+        if left == 0 and i in rset:
+            print('invalid parentheses')
+            return
+    print('left:', left)
+    print('right:', right)
+    if left != right:
+        print('invalid parentheses')
+        return
 valid_parentheses(s)
 
