@@ -1,0 +1,31 @@
+* valid parentheses
+#+BEGIN_SRC python :results output
+  open_list = ["[","{","("] 
+  close_list = ["]","}",")"] 
+  s = '({[]})'
+  def valid_parentheses(s):
+      left = 0
+      right = 0
+      for i in s:
+          if i in open_list:
+              left += 1
+          if i in close_list:
+              right += 1
+          if left == 0 and i in rset:
+              print('invalid parentheses')
+              return
+      print('left:', left)
+      print('right:', right)
+      if left != right:
+          print('invalid parentheses')
+          return
+  valid_parentheses(s)
+#+END_SRC
+
+#+RESULTS:
+: left: 3
+: right: 3: hi
+* a
+#+BEGIN_SRC python :results output
+  print('hi')
+#+END_SRC

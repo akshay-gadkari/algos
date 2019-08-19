@@ -3,7 +3,9 @@
 - if there's nothing on the call stack, it does nothing
 - if you click a button (for example), event listeners waiting for user interaction like onClick
 #+BEGIN_SRC js
-console.log(n);
+console.log('hi');
 #+END_SRC
 
 #+RESULTS:
+: hi
+: undefined
