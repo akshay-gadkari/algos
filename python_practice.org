@@ -4,28 +4,65 @@
   close_list = ["]","}",")"] 
   s = '({[]})'
   def valid_parentheses(s):
-      left = 0
-      right = 0
+      stack = []
       for i in s:
           if i in open_list:
-              left += 1
-          if i in close_list:
-              right += 1
-          if left == 0 and i in rset:
-              print('invalid parentheses')
-              return
-      print('left:', left)
-      print('right:', right)
-      if left != right:
-          print('invalid parentheses')
-          return
+              stack.append(i)
+              print(stack)
+          elif i in close_list:
+              position = close_list.index(i)
+              if ((len(stack) > 0) and (open_list[position] == stack[len(stack)-1])):
+                  stack.pop()
+              else:
+                  print('Unbalanced')
+                  return 'Unbalanced'
+      if len(stack) == 0:
+          print('Balanced')
+          return 'Balanced'
   valid_parentheses(s)
 #+END_SRC
 
 #+RESULTS:
-: left: 3
-: right: 3: hi
-* a
+: Balanced
+* Regular Expression Matching
 #+BEGIN_SRC python :results output
-  print('hi')
+  # Given an input string (s) and a pattern (p), implement regular expression matching with support for '.' and '*'.
+
+  # '.' Matches any single character.
+  # '*' Matches zero or more of the preceding element.
+
+  # The matching should cover the entire input string (not partial).
+
+  # Note:
+
+  #     s could be empty and contains only lowercase letters a-z.
+  #     p could be empty and contains only lowercase letters a-z, and characters like . or *.
+
+  # Example 1:
+
+  # Input:
+  # s = "aa"
+  # p = "a"
+  # Output: false
+  # Explanation: "a" does not match the entire string "aa".
 #+END_SRC
+
+#+RESULTS:
+: hi
+* a
+#+NAME:done1
+#+BEGIN_SRC python :results output
+s = 1 + 1
+print(s)
+return s
+#+END_SRC
+
+#+RESULTS:
+: 2
+
+
+#+BEGIN_SRC python :results output input:done1
+print(s)
+#+END_SRC
+
+#+RESULTS:

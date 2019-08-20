@@ -1,5 +1,6 @@
-#+DATE:2019-08-19
+#+TITLE:Notes
 * event queue - while loop running all the time looking for messages
+#+DATE:2019-08-19
 - if there's nothing on the call stack, it does nothing
 - if you click a button (for example), event listeners waiting for user interaction like onClick
 #+BEGIN_SRC js
@@ -9,3 +10,28 @@ console.log('hi');
 #+RESULTS:
 : hi
 : undefined
+* patterns
+#+DATE:2019-08-20
+- /patterns/ - e.g. loops are a pattern for iteration
+  + given an array of integers, find the max value
+    * iterate through the array
+    * keep a current max value
+    * if we see a value more than current max, update max with that value
+  + code
+    #+BEGIN_SRC python :results output
+      arr = [1, 2, 3, 5, 4]
+      
+      for i in range(len(arr)):
+          if i == 0:
+              max = arr[i]
+          else:
+              if arr[i] > max:
+                  max = arr[i]
+      print(max)
+    #+END_SRC
+    
+    #+RESULTS:
+    : 5
+- /data structures/ - patterns that give you some specific functionality
+  + e.g. arrays give you list like operations
+    * 

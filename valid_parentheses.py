@@ -38,4 +38,3 @@ def valid_parentheses(s):
         print('invalid parentheses')
         return
 valid_parentheses(s)
-
