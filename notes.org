@@ -213,4 +213,6 @@ console.log('hi');
   + the event loop (which is constatnly running) sees it and invokes the call stack
   + calls setTimeout, which calls outer, which calls console.log
     * console.log finishes, then outer finishes, then setTimeout finishes
-  + 
+  + message queue can get slow if there's different messages
+    * a message that's slow to process takes a long time, then the new messages can't get through
+    * causes a lot of lag
