@@ -20,7 +20,7 @@ console.log('hi');
   + code
     #+BEGIN_SRC python :results output
       arr = [1, 2, 3, 5, 4]
-      
+
       for i in range(len(arr)):
           if i == 0:
               max = arr[i]
@@ -34,4 +34,183 @@ console.log('hi');
     : 5
 - /data structures/ - patterns that give you some specific functionality
   + e.g. arrays give you list like operations
-    * 
+- reduce method on arrays
+  + Array.reduce in JS
+  + we use reduce to return a single thing from the values in an array, like a sum function
+    #+BEGIN_SRC js
+    const array1 = [1, 2, 5, 4, 3];
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    console.log(array1.reduce(reducer));
+    #+END_SRC
+
+    #+RESULTS:
+    : 10
+    : undefined
+  + also can do get max in a reducer
+    #+BEGIN_SRC js
+      const arr = [1, 4, 6, 5, 3];
+      function getMax(arr) {
+          return arr.reduce((acc, curr) => {
+              if (curr > acc) {
+                  acc = curr;
+              }
+              return acc;
+          });
+      }
+      console.log(getMax(arr));
+    #+END_SRC
+
+    #+RESULTS:
+    : 6
+    : undefined
+  + sums
+    #+BEGIN_SRC js
+      const arr = [1, 4, 6, 5, 3];
+      function sum(arr) {
+          let total = 0;
+          for (let i = 0; i < arr.length; i++) {
+              total += arr[i];
+          }
+          return total;
+      }
+      console.log(sum(arr));
+    #+END_SRC
+
+    #+RESULTS:
+    : 19
+    : undefined
+  + string concatenation
+    #+BEGIN_SRC js
+      arr = [1, 2, 3];
+      function stringConcat(arr) {
+          return arr.reduce((acc, curr) => {
+              acc += curr;
+              return acc;
+          }, ""); //accumulator initializes to an empty string
+      }
+      console.log(stringConcat(arr));
+    #+END_SRC
+
+    #+RESULTS:
+    : 123
+    : undefined
+- homework
+  1. flatten
+     + Write a function that flattens an array that may be nested arbitrarily deep. 
+     + For example, given the following:
+     + [1, 2, 3, [1, 2, 3, 4, [2, 3, 4]]]
+
+     + Your function should return:
+     + [1, 2, 3, 1, 2, 3, 4, 2, 3, 4]
+     + Your solution should make use of the Array.reduce method.
+
+       #+BEGIN_SRC js
+         const arr = [1, 2, 3, [1, 2, 3, 4, [2, 3, 4]]];
+         function flatten(arr) {
+             return arr.reduce((acc, curr) => {
+                 if (Array.isArray(curr)) {
+                     acc.concat(flatten(curr));
+                 }
+                 else {
+                     acc.concat(curr);
+                 }
+             }, []);
+             return acc;
+         }
+         console.log(flatten(arr));
+       #+END_SRC
+
+       #+RESULTS:
+  2. voterResults
+     + Write a function that, given an array of voter objects, returns an object summarizing the results of the vote.
+
+       #+BEGIN_SRC js
+         const voters = [
+             {name:'Bob' , age: 30, voted: true},
+             {name:'Jake' , age: 32, voted: true},
+             {name:'Kate' , age: 25, voted: false},
+             {name:'Sam' , age: 20, voted: false},
+             {name:'Phil' , age: 21, voted: true},
+             {name:'Ed' , age:55, voted:true},
+             {name:'Tami' , age: 54, voted:true},
+             {name: 'Mary', age: 31, voted: false},
+             {name: 'Becky', age: 43, voted: false},
+             {name: 'Joey', age: 41, voted: true},
+             {name: 'Jeff', age: 30, voted: true},
+             {name: 'Zack', age: 19, voted: false}
+         ];
+
+         function voterResults(voters) {
+             return voters.reduce((acc, curr) => {
+	
+             })
+         }
+       #+END_SRC
+
+
+
+
+#+BEGIN_SRC python :results output
+  print(2391/36)
+#+END_SRC
+
+#+RESULTS:
+: 66.41666666666667
+* call stack and message queue
+#+DATE:2019-08-21
+
+#+BEGIN_SRC js
+  console.log(1);
+
+  setTimeout(()=> {
+      console.log(2);
+  }, 1000);
+
+  console.log(3);
+#+END_SRC
+
+#+RESULTS:
+: 1
+: 3
+: undefined2
+
+- /callback functions/ - function that's executed after another function has finished executing
+- /method/ - function on an object
+  #+BEGIN_SRC js
+    function foo() {} // function declaration
+    const x = function() {}; // function expression
+    const y = () => {};// function expression with an arrow function
+    const obj = {foo: function() {} }; // function expression with an anonymous function
+    const functions = [() => {console.log('hi')}, function() {}]; //anonymous function in an array
+    functions[0]();
+
+    // cb down here in outer(cb) is the parameter
+    function outer(cb) { //function declaration with a callback function parameter
+        cb();
+    }
+
+    outer(() => {           //() => {
+        console.log('hi');  //console.log('hi');   <- this whole thing is the callback in outer(cb)
+    });                     //}
+
+    console.log(1);
+    
+    setTimeout(() => {
+        console.log(2);
+    }, 1000);
+
+    console.log(3);
+  #+END_SRC
+
+  #+RESULTS:
+  : hi
+  : hi
+  : 1
+  : 3
+  : undefined2
+  + when the call stack is done, the event loop checks the message queue and sees if there are any new functions to call
+  + once 1000 ms passes, a new message gets added to the queue
+  + the event loop (which is constatnly running) sees it and invokes the call stack
+  + calls setTimeout, which calls outer, which calls console.log
+    * console.log finishes, then outer finishes, then setTimeout finishes
+  + 
