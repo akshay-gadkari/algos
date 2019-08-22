@@ -271,3 +271,9 @@ console.log('hi');
   + message queue can get slow if there's different messages
     * a message that's slow to process takes a long time, then the new messages can't get through
     * causes a lot of lag
+* Calculator Widget
+#+DATE:2019-08-22
+
+#+BEGIN_SRC
+
+#+END_SRC
