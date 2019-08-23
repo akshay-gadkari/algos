@@ -92,25 +92,38 @@ Return the total number of matching pairs of socks that John can sell.
 #+BEGIN_SRC python :results output
   clouds = [0,1,0,0,0,1,0]
   def jumpingOnClouds(clouds):
-      for i in range(len(clouds)):
-          try:
-              if clouds[i+2] != None and clouds[i+2] == 0:
-                  i += 2
-                  print('moving', i)
-                  continue
-              if clouds[i+1] != None and clouds[i+1] == 1:
-                  if clouds[i+2] != None and clouds[i+2] == 1:
-                      i += 1
-                      print(i)
-                      continue
-          except:
+      # for i in range(len(clouds)):
+      #     try:
+      #         if clouds[i+2] != None and clouds[i+2] == 0:
+      #             print(i)
+      #             i += 2
+      #             print('moving', i)
+      #             continue # continues one forward instead of 2
+      #         if clouds[i+1] != None and clouds[i+1] == 1:
+      #             if clouds[i+2] != None and clouds[i+2] == 1:
+      #                 i += 1
+      #                 print(i)
+      #                 continue
+      #     except:
+      #         continue
+      i = 0
+      while i < len(clouds):
+          if clouds[i+2] == 0:
+              i += 2
+              continue
+          if clouds[i+1] == 0:
+              i += 1
               continue
   jumpingOnClouds(clouds)
 
 #+END_SRC
 
 #+RESULTS:
+: 0
 : moving 2
+: 1
 : moving 3
+: 2
 : moving 4
+: 4
 : moving 6

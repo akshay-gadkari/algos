@@ -274,6 +274,35 @@ console.log('hi');
 * Calculator Widget
 #+DATE:2019-08-22
 
-#+BEGIN_SRC
+#+BEGIN_SRC js
+  class TodoApp extends React.Component {
+      constructor(props) {
+          super(props)
+          this.state = {
+              items: [
+                  { text: "Learn JavaScript", done: false },
+                  { text: "Learn React", done: false },
+                  { text: "Play around in JSFiddle", done: true },
+                  { text: "Build something awesome", done: true }
+              ]
+          }
+      }
+    
+      render() {
+          return (
+                  <div class="App">
+                  <table>
+                  <tr>
+                  <button class="col">7</button>
+                  <button class="col">8</button>
+                  <button class="col">9</button>
+                  <button class="col">/</button>
+                  </tr>
+                  </table>
+                  </div>
+          )
+      }
+  }
 
+  ReactDOM.render(<TodoApp />, document.querySelector("#app"))
 #+END_SRC
