@@ -416,7 +416,7 @@ console.log('hi');
   #+RESULTS:
   : 16
   : undefined
-* COMMENT linked lists
+* linked lists
 #+DATE:2019-08-26
 - example of linked list
   #+BEGIN_SRC js
@@ -492,7 +492,7 @@ console.log('hi');
         addNode(value) {
             const node = {
                 next: null,
-                data,
+                data: null
             };
 
             if (this.head === null) {
@@ -514,9 +514,105 @@ console.log('hi');
     }
 
     const list = new LinkedList();
-    a = list.addNode(b, 1);
-    b = list.addNode(null, 2);
+    list.addNode('a', 1);
+    list.addNode('b', 1);
+
+    console.log(list);
   #+END_SRC
 
-* JS
+  #+RESULTS:
+* linked list iteration
 #+DATE:2019-08-27
+- ll without overarching linked list class
+  #+BEGIN_SRC js
+    class Node {
+        constructor(value, next=null) {
+            this.value = value;
+            this.next = next;
+        }
+    }
+
+    const ll = new Node(1);
+    ll.next = new Node(2);
+    ll.next.next = new Node(3);
+    ll.next.next.next = new Node(4);
+    ll.next.next.next.next = new Node(5);
+    ll.next.next.next.next.next = new Node(-1);
+    ll.next.next.next.next.next.next = null;
+
+    // define a linked list print function
+    function printLinkedList(node) {
+        // can't use a for loop (no index exists)
+        // usually use a while loop for iteration
+        // that'll be combined with a reference that indicates our current node as we traverse the list
+        let current = node;
+        while (current) {
+            console.log(current.value);
+            current = current.next;
+        }
+    }
+    //printLinkedList(ll);
+
+    function printLinkedListLessThanFive(node) {
+        let current = node;
+        while (current) {
+            if (current.value < 5) {
+                console.log(current.value);
+            }
+            current = current.next;
+        }
+    }
+    //printLinkedListLessThanFive(ll);
+
+    function linkedListForEach(node, cb) {
+        // iterate along each linked list
+        let current = node;
+        while (current) {
+            cb(current); // invoke cb on the current node
+            current = current.next; // update the current reference
+        }
+    }
+
+    // linkedListForEach(ll, (node) => {
+    //     if (node.value < 5) {
+    //         console.log(node.value);
+    //     }
+    // });
+
+    // function reverseLin
+    kedList(node) {
+        // take a reference to the current node
+        let current = node;
+        // init a previous node to null
+        let previous = null;
+        // loop through our linked list
+        while (current) {
+            // take a refrerence to the current node's next node
+            let next = current.next;
+            // now we can set current.next = previous
+            // flipping the direction fo the node
+            current.next = previous;
+            // update our references
+            // set previous = current
+            previous = current;
+            current = next;
+        }
+        // return the new head
+        return previous;
+    }
+
+    const reversed = reverseLinkedList(ll);
+    linkedListForEach(reversed, (node) => console.log(node.value));
+    reverseLinkedList(ll);
+  #+END_SRC
+
+  #+RESULTS:
+  : 1
+  : 2
+  : 3
+  : 4
+  : -1
+  : undefined
+
+* js
+#+DATE:2019-08-28
