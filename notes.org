@@ -1,5 +1,6 @@
 #+TITLE:Notes
-* event queue - while loop running all the time looking for messages
+* event queues
+- /event queue/ - while loop running all the time looking for messages
 #+DATE:2019-08-19
 - if there's nothing on the call stack, it does nothing
 - if you click a button (for example), event listeners waiting for user interaction like onClick
@@ -415,5 +416,107 @@ console.log('hi');
   #+RESULTS:
   : 16
   : undefined
-* JS
+* COMMENT linked lists
 #+DATE:2019-08-26
+- example of linked list
+  #+BEGIN_SRC js
+    const x = {
+        prop1: 5,
+        next: 'z'
+    };
+    //const y = x; //there is a single object, but now y AND x both reference that object
+
+    const y = {
+        prop1: 'hello',
+        next: x
+    };
+
+    console.log(y.next);
+  #+END_SRC
+
+  #+RESULTS:
+  : { prop1: 5, next: 'z' }
+  : undefined
+- big O notation
+  + O(n) is constant time
+- linked lists are good at sorting unsorted data
+  + easier to build out a linekd list from unsorted data, then converting it into an array
+- JS doesn't really need a linked list, cause JS is more like a hash table
+- ll with 3 nodes
+  #+BEGIN_SRC js
+    const head = {
+        next: null,
+        data: 'hi'
+    };
+
+    const middle = {
+        next: null,
+        data: 'hello'
+    };
+
+    const tail = {
+        next: null,
+        data: 'hey'
+    };
+
+    head.next = middle; //override the next: null property and set next to the next object
+    middle.next = tail;
+  #+END_SRC
+  + head, middle , and tail are 3 objects that occupy 3 different locations on the heap
+- ll with 3 nodes, but nested
+  + you can copy these out and visualize them inside of each other
+     #+BEGIN_SRC js
+       const head = {
+           next: {
+               next: {
+                   next: null,
+                   data: 'hey'
+               },
+               data: 'hello'
+           },
+           data: 'hi'
+       };
+       console.log(head);
+     #+END_SRC
+
+     #+RESULTS:
+     : undefined
+- class for LL
+  #+BEGIN_SRC js
+    class LinkedList {
+        constructor() {
+            this.head = null;
+            this.tail =  null;
+        }
+
+        addNode(value) {
+            const node = {
+                next: null,
+                data,
+            };
+
+            if (this.head === null) {
+                this.head = newNode;
+                this.tail = newNode;
+                return;
+            }
+
+            // let pointer = this.head;
+            // while (pointer.next != null) {
+            //     pointer = pointer.next;
+            // }
+            // pointer.next = newNode;
+
+            this.tail.next = newNode;
+            this.tail = newNode;
+            return;
+        }
+    }
+
+    const list = new LinkedList();
+    a = list.addNode(b, 1);
+    b = list.addNode(null, 2);
+  #+END_SRC
+
+* JS
+#+DATE:2019-08-27
