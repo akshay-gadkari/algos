@@ -614,5 +614,101 @@ console.log('hi');
   : -1
   : undefined
 
-* js
+* Big O and linked lists
 #+DATE:2019-08-28
+- O(n) time
+  #+BEGIN_SRC js
+    const input = [];
+
+    for (let i = 0; i <= 100; i++) {
+        input.push(i);
+    }
+
+    console.log(input.length);
+  #+END_SRC
+
+  #+RESULTS:
+  : 101
+  : undefined
+- /O(log n)/ - logarithmic complexity works well with large data sets (even better than linear)
+  #+BEGIN_SRC js
+    const input = [1,2,3,4,5,6];
+    for (let i = 0; i < input.length; i++) {
+        i += Math.floor((input.length - i) / 2);
+        console.log(input[i]);
+    }
+  #+END_SRC
+
+  #+RESULTS:
+  : 4
+  : 6
+  : undefined
+- /O(n^2)/ - if there's 10 items in the input, 100 operations are performed
+  #+BEGIN_SRC js
+    const input = [1,2];
+    for (let i = 0; i < input.length; i++) {
+        for (let j = 0; j < input.length; j++) {
+            console.log('hi');
+        }
+    }
+  #+END_SRC
+  #+RESULTS:
+  : hi
+  : hi
+  : hi
+  : hi
+  : undefined
+  + if the input length is 10, it does 100 operations
+- /O(3n^2 + 5n + 4)/ - if there's 10 items in the input, 50 operations are performed
+  #+BEGIN_SRC js
+    const input = [1,2];
+
+    function foo() {
+        for (let i = 0; i < input.length; i++) {
+            for (let j = 0; j < input.length; j++) {
+                console.log('hi');
+            }
+        }
+        for (let i = 0; i < input.length; i++) {
+            for (let j = 0; j < input.length; j++) {
+                console.log('hi');
+            }
+        }
+        for (let i = 0; i < input.length; i++) {
+            for (let j = 0; j < input.length; j++) {
+                console.log('hi');
+            }
+        }
+
+        for (let i = 0; i < input.length; i++) {
+            console.log('hi');
+        }
+        for (let i = 0; i < input.length; i++) {
+            console.log('hi');
+        }
+        for (let i = 0; i < input.length; i++) {
+            console.log('hi');
+        }
+        for (let i = 0; i < input.length; i++) {
+            console.log('hi');
+        }
+        for (let i = 0; i < input.length; i++) {
+            console.log('hi');
+        }
+        console.log(input.length);
+        console.log(input.length);
+        console.log(input.length);
+        console.log(input.length);
+    }
+  #+END_SRC
+  + 3n^2 + 5n + 4 is *not* the big O notation
+    * remove the coefficients -> n^2 + n + 4
+    * keep only the highest , which is n^2, so it's O(n^2)
+  + best case scenario is O(1) if you search and it's in the first one
+  + worst case is going through every item in the array O(n^2) and the big complexity is the wprst case
+* js
+#+DATE:2019-08-29
+- js
+  #+BEGIN_SRC js
+  
+  #+END_SRC
