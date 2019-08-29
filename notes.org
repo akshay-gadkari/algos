@@ -659,16 +659,11 @@ console.log('hi');
   : hi
   : undefined
   + if the input length is 10, it does 100 operations
-- /O(3n^2 + 5n + 4)/ - if there's 10 items in the input, 50 operations are performed
+- /O(2n^2 + 5n + 4)/ - if there's 10 items in the input, 50 operations are performed
   #+BEGIN_SRC js
     const input = [1,2];
 
     function foo() {
-        for (let i = 0; i < input.length; i++) {
-            for (let j = 0; j < input.length; j++) {
-                console.log('hi');
-            }
-        }
         for (let i = 0; i < input.length; i++) {
             for (let j = 0; j < input.length; j++) {
                 console.log('hi');
@@ -701,7 +696,7 @@ console.log('hi');
         console.log(input.length);
     }
   #+END_SRC
-  + 3n^2 + 5n + 4 is *not* the big O notation
+  + 2n^2 + 5n + 4 is *not* the big O notation
     * remove the coefficients -> n^2 + n + 4
     * keep only the highest , which is n^2, so it's O(n^2)
   + best case scenario is O(1) if you search and it's in the first one
