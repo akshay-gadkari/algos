@@ -701,9 +701,122 @@ console.log('hi');
     * keep only the highest , which is n^2, so it's O(n^2)
   + best case scenario is O(1) if you search and it's in the first one
   + worst case is going through every item in the array O(n^2) and the big complexity is the wprst case
-* js
-#+DATE:2019-08-29
-- js
+* Binary Search
+#+DATE:2019-09-03
+- used to search for stuff
+- why use it instead of iterating over the whole array? it's more efficient
+- we can perform binary search when we know something about the input that we can leverage
+  + in the case of binary search, typically we know that the array is sorted
+- when we don't know anything about the ordering of the array, then iterating over each element one at a time is the best we can do
+- high-level overview of how Binary Search works
+  + continually narrow down the range in which the element we're searching for can be in (given that we know something about the ordering of the array's elements)
+    #+BEGIN_SRC js
+      let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    #+END_SRC
+  + eventually we narrow it down to our element, or the element we're searching for isn't in the array
+    1. loop until our range is narrowed down to a single element
+    2. calculate the midpoint index of the boundarines of the range
+    3. compare the midpoint against our target
+    4. if midpoint matches our target, we're done
+       * otherwise decide whether we eliminate the elft or right sub array
+    5. repeat this process in the next loop iteration
+- example
   #+BEGIN_SRC js
-  
+    function binary_search(arr, target) {
+        let left = 0;
+        let right = arr.length - 1;
+        //loop until left and right pass each other
+        while (left <= right) {
+            const midpoint = Math.floor(left + ((right - left) / 2));
+            if(arr[midpoint] === target) {
+                return midpoint;
+            }
+            // otherwise check if arr[midpoint] > target
+            //that means the target must be in the left range
+            // toss out the right half of the range
+            else if (arr[midpoint] > target) {
+                right = midpoint - 1;
+            } else {
+                left = midpoint + 1;
+            }
+        }
+        //we didn't find the target element
+        return -1;
+    }
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    console.log(binary_search(arr, 6));
   #+END_SRC
+
+  #+RESULTS:
+  : 5
+  : undefined
+- example with arrays could be either in ascending or descending order
+    #+BEGIN_SRC js
+      function ascending_binary_search(arr, target) {
+          let left = 0;
+          let right = arr.length - 1;
+          //loop until left and right pass each other
+          while (left <= right) {
+              const midpoint = Math.floor(left + ((right - left) / 2));
+              if(arr[midpoint] === target) {
+                  return midpoint;
+              }
+              // otherwise check if arr[midpoint] > target
+              //that means the target must be in the left range
+              // toss out the right half of the range
+              else if (arr[midpoint] > target) {
+                  right = midpoint - 1;
+              } else {
+                  left = midpoint + 1;
+              }
+          }
+          //we didn't find the target element
+          return -1;
+      }
+
+      function descending_binary_search(arr, target) {
+          let right = 0;
+          let left = arr.length - 1;
+          //loop until left and right pass each other
+          while (left <= right) {
+              const midpoint = Math.floor(left + ((right - left) / 2));
+              if(arr[midpoint] === target) {
+                  return midpoint;
+              }
+              // otherwise check if arr[midpoint] > target
+              //that means the target must be in the left range
+              // toss out the right half of the range
+              else if (arr[midpoint] > target) {
+                  right = midpoint - 1;
+              } else {
+                  left = midpoint + 1;
+              }
+          }
+          //we didn't find the target element
+          return -1;
+      }
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      const arr2 = [5,4,3,2,1];
+      console.log(ascending_binary_search(arr, 6));
+      console.log(descending_binary_search(arr2, 6));
+
+
+      function order_agnostic_binary_search(arr, target) {
+          let left = 0;
+          let right = arr.length - 1;
+
+          if (arr[left] > arr[right]) {
+              return descending_binary_search(arr, target)
+          }
+          return ascending_binary_search(arr, target)
+      }
+      console.log(order_agnostic_binary_search(arr, 3));
+      console.log(order_agnostic_binary_search(arr2, 4));
+    #+END_SRC
+
+    #+RESULTS:
+    : 5
+    : -1
+    : 2
+    : -1
+    : undefined
