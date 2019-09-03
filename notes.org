@@ -147,8 +147,8 @@ console.log('hi');
              };
 
              return voters.reduce((acc, curr) => {
-                 if (18 <= curr.age <= 25) {
-                     acc.youth += 1;
+                 if (18 <= curr.age <= 25) {  //search for age range
+                     acc.youth += 1; //go to the next voter
                  }
                  return acc;
              }, results);
