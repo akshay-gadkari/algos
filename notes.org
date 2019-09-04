@@ -820,3 +820,97 @@ console.log('hi');
     : 2
     : -1
     : undefined
+- assignment
+  #+BEGIN_SRC js
+    function findSmallestMissing(arr) {
+        // Your code here
+        
+    }
+  #+END_SRC
+* Trees
+#+DATE:2019-09-04
+- arrays & strings
+  + we can access items in the middle of an array very quickly
+  + we also have strings, which are like arrays (you can access chars in a string with an index)
+  + we can retrieve elements from the middle of an array (or chars from the middle of a string) easily
+  + in JSON you convert JS objects into a string
+- linked lists
+  + singly and doubly linked lists
+  + very quick to insert and delete items in the middle of a list in constant time: O(1)
+- trees
+  + like linked lists, where the node can connect to multiple other nodes
+  + 3 types of trees
+    * binary search trees
+    * file systems
+    * DOM in web browsers
+- hasing passwords
+  + password string 'passw' goes through hashing function which returns the hash asdgr32
+    * 'passw' -> #asdgr32
+  + we store the password's hash in the database, not the password itself
+  + we compare the password hash that someone entered to the hash in our database
+- if we want to get an email in our db, we pass the (unique) email into a hashing function to make it faster to search for a user's email
+  + looking up a key in a dict is a constant time lookup inn O(1)
+- trees with nested arrays and objects
+  #+BEGIN_SRC js
+    const users = [
+        {
+            friends: [
+                {},
+                {},
+                {}
+            ],
+        },
+        {},
+        {},
+    ];
+
+  #+END_SRC
+- /binary tree/ - each child can have 0 to 2 children
+  + /binary search tree/ - binary tree that needs to be sorted
+- example
+  #+BEGIN_SRC js
+    class Tree {
+        constructor(value = null) {
+            this.value = value;
+            this.children  = [];
+        }
+        addChild(value) {
+            const child = new Tree(value);
+            this.children.push(child);
+        }
+    }
+
+    const greetings = new Tree('greetings');
+    greetings.addChild('Ni Hao');
+    greetings.addChild('Guten Tag');
+    greetings.addChild('Hello');
+
+    console.log(greetings);
+
+    const tree = {
+        children: [
+            {
+                children: [],
+                value: 'Ni Hao'
+            },
+            {
+                children: [],
+                value: 'Guten Tag'
+            },
+            {
+                children: [],
+                value: 'Hello'
+            },
+        ],
+        value: 'Greetings'
+    };
+  #+END_SRC
+
+  #+RESULTS:
+  : Tree {
+  :   value: 'greetings',
+  :   children:
+  :    [ Tree { value: 'Ni Hao', children: [] },
+  :      Tree { value: 'Guten Tag', children: [] },
+  :      Tree { value: 'Hello', children: [] } ] }
+  : undefined
