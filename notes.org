@@ -923,7 +923,7 @@ console.log('hi');
 - /DFS (depth-first search)/ - they use the word path i.e. a path going from root to leaf
 - /BFS (bradth-first search)/ - they use the word level
 
-*depth first traversal*
+** depth first traversal
 #+BEGIN_SRC js
   function depthFirstForEach(root, cb) {
       // add the children of the current nodes to a stack for the LIFO ordering
@@ -945,8 +945,7 @@ console.log('hi');
       }
   }
 #+END_SRC
-
-*breadth first traversal*
+** breadth first traversal
 #+BEGIN_SRC js
   function breadthFirstForEach(root, cb) {
       // add the children of the current node to a queue for the FIFO ordering
