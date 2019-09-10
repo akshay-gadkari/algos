@@ -967,3 +967,29 @@ console.log('hi');
       }
   }
 #+END_SRC
+* minimum char deletions
+#+DATE:2019-09-05
+- minimum required deletions to get to no matching adjacent characters
+
+#+BEGIN_SRC js
+  const s = 'aabaab'
+
+  function alternatingCharacters(s) {
+      let deletions = 0;
+      let tempChar = s[1];
+      for (let i; i < s.length - 1; i++) {
+          if (s[i] === tempChar) {
+              deletions += 1;
+          }
+          tempChar = s[i+2];
+      }
+      console.log(deletions);
+      return deletions;
+  }
+
+  alternatingCharacters(s);
+#+END_SRC
+
+#+RESULTS:
+: 0
+: undefined
