@@ -993,3 +993,44 @@ console.log('hi');
 #+RESULTS:
 : 0
 : undefined
+* middle of a linked list
+#+DATE:2019-09-05
+- given the head of a linked list, return the middle node of a linked list
+
+#+BEGIN_SRC js
+  class Node {
+      constructor(value, next=null) {
+          this.value = value;
+          this.next = next;
+      }
+  }
+
+  function findMiddleNode(head) {
+      // create a current variable to track which node we're on
+      // initialize the current variable to be the head
+      let fast = head;
+      // keep another reference that will end up referring to the middle node
+      // -where does this other reference start?
+      let slow = head;
+      // loop while fast is a valid list node
+      while (fast && fast.next) {
+          fast = fast.next.next;
+          slow = slow.next;
+      }
+      // -move the current variable twice as fast as the other variabe
+      // -once the current variable reaches the end of the linked list, the other variable will be at halfway point
+      // -return the node referred to by the other variable
+      return slow;
+  }
+
+  const root = new Node(3);
+  root.next = new Node(4);
+  root.next.next = new Node(5);
+  root.next.next.next = new Node(6);
+  root.next.next.next.next = new Node(7);
+
+  console.log(findMiddleNode(root));
+#+END_SRC
+
+#+RESULTS:
+: undefined
